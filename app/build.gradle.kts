@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hilt)
+    kotlin("kapt")
 }
 
 
@@ -74,15 +76,14 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.8.0")
 
-    implementation ("com.google.dagger:hilt-android:2.48")
-  //  kapt ("com.google.dagger:hilt-compiler:2.48")
-// Hilt navigation-compose
-    implementation (libs.hilt.navigation.compose)
+     // Hilt navigation-compose
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
 
 
     implementation (libs.androidx.palette)
-    implementation(libs.hilt.android)
 
-    implementation ("io.coil-kt:coil:1.1.1")
-    implementation ("com.google.accompanist:accompanist-coil:0.7.0")
+    implementation (libs.coil)
+    implementation (libs.accompanist.coil)
 }

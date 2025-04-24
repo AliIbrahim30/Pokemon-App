@@ -32,6 +32,9 @@ class PokemonListViewModel @Inject constructor(
     var isLoading = mutableStateOf(false)
     var endReached = mutableStateOf(false)
 
+    init {
+        loadPokemonPaginated()
+    }
     fun loadPokemonPaginated() {
         viewModelScope.launch {
             val result = repository.getPokemonList(PAGE_SIZE, curPage * PAGE_SIZE)
@@ -59,7 +62,7 @@ class PokemonListViewModel @Inject constructor(
                 }
 
                 is Resource.Error -> {
-
+                    loadError.value= "An unKnown error occurred"
                 }
             }
         }
