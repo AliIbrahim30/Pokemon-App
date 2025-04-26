@@ -12,15 +12,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.toLowerCase
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.jetpackcompospokemon2.pokemondetail.PokemonDetailsScreen
 import com.example.jetpackcompospokemon2.pokemonlist.PokemonListScreen
 import com.example.jetpackcompospokemon2.ui.theme.JetpackComposPokemon2Theme
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -54,6 +57,12 @@ class MainActivity : ComponentActivity() {
                         val pokemonName = remember {
                             it.arguments?.getString("pokemonName")
                         }
+
+                        PokemonDetailsScreen(
+                            dominantColor =dominantColor,
+                            pokemonName =pokemonName?.toLowerCase(Locale.ROOT) ?: "",
+                            navController =navController
+                        )
 
                     }
                 }

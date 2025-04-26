@@ -96,6 +96,8 @@ class PokemonListViewModel @Inject constructor(
                 is Resource.Error -> {
                     loadError.value= "An unKnown error occurred"
                 }
+
+                else -> {}
             }
         }
     }
