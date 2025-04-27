@@ -60,7 +60,7 @@ class MainActivity : ComponentActivity() {
 
                         PokemonDetailsScreen(
                             dominantColor =dominantColor,
-                            pokemonName =pokemonName?.toLowerCase(Locale.ROOT) ?: "",
+                            pokemonName =pokemonName?.lowercase(Locale.ROOT) ?: "",
                             navController =navController
                         )
 
